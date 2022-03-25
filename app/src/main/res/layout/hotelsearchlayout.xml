@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/hotel_Title_TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Smart Hotel Management"
+        android:textSize="30dp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/CheckInDate_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Check In Date:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hotel_Title_TextView" />
+
+    <DatePicker
+        android:id="@+id/CheckInDate_Calendar"
+        android:layout_width="378dp"
+        android:layout_height="171dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/CheckInDate_TextView"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/CheckOutDate_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Check Out Date:"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/CheckInDate_Calendar"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <DatePicker
+        android:id="@+id/CheckOutDate_Calendar"
+        android:layout_width="378dp"
+        android:layout_height="171dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/CheckOutDate_TextView"
+        />
+
+    <TextView
+        android:id="@+id/NoOfGuest_TextView"
+        android:layout_width="137dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:text="Number of guest"
+
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/CheckOutDate_Calendar"
+        />
+
+    <TextView
+        android:id="@+id/YourName_TextView"
+        android:layout_width="137dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="1dp"
+        android:text="Enter your name"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/NoOfGuest_TextView"
+         />
+
+    <EditText
+        android:id="@+id/editText_NumberOfGuest"
+        android:layout_width="203dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="200dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintLeft_toRightOf="@id/NoOfGuest_TextView"
+        app:layout_constraintTop_toBottomOf="@id/CheckOutDate_TextView"
+
+        />
+
+    <EditText
+        android:id="@+id/editText_guestName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintLeft_toRightOf="@id/YourName_TextView"
+        tools:layout_editor_absoluteY="530dp" />
+
+    <Button
+        android:id="@+id/EnterGuest_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Guest"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="592dp" />
+
+    <Button
+        android:id="@+id/Search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="650dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
