@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/HotelApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/HotelApp/app/src/main/res/layout/hotelsearchlayout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/InClass_10March/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/InClass_10March/app/src/main/res/layout/hotelguestlistfragment.xml" value="0.2210144927536232" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/InClass_10March/app/src/main/res/layout/hotelguestlistlayout.xml" value="0.264" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/InClass_10March/app/src/main/res/layout/hotellistfragment.xml" value="0.2" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/InClass_10March/app/src/main/res/layout/hotellistlayout.xml" value="0.264" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/InClass_10March/app/src/main/res/layout/hotellistpayout.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/InClass_10March/app/src/main/res/layout/hotelsearchlayout.xml" value="0.264" />
       </map>

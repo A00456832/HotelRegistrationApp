@@ -5,6 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:id="@+id/hotel_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/hotel_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
     <TextView
         android:id="@+id/hotel_Title_TextView"
         android:layout_width="match_parent"
@@ -31,8 +41,8 @@
 
     <DatePicker
         android:id="@+id/CheckInDate_Calendar"
-        android:layout_width="378dp"
-        android:layout_height="171dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -54,8 +64,8 @@
 
     <DatePicker
         android:id="@+id/CheckOutDate_Calendar"
-        android:layout_width="378dp"
-        android:layout_height="171dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -90,14 +100,13 @@
 
     <EditText
         android:id="@+id/editText_NumberOfGuest"
-        android:layout_width="203dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="200dp"
-        android:ems="10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:inputType="numberDecimal"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toRightOf="@id/NoOfGuest_TextView"
-        app:layout_constraintTop_toBottomOf="@id/CheckOutDate_TextView"
+        app:layout_constraintTop_toBottomOf="@id/CheckOutDate_Calendar"
 
         />
 
@@ -110,22 +119,27 @@
         android:inputType="textPersonName"
         android:text=""
         app:layout_constraintLeft_toRightOf="@id/YourName_TextView"
-        tools:layout_editor_absoluteY="530dp" />
+        app:layout_constraintTop_toTopOf="@id/YourName_TextView"
+        />
 
     <Button
         android:id="@+id/EnterGuest_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter Guest"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="592dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/YourName_TextView"/>
 
     <Button
         android:id="@+id/Search_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="650dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EnterGuest_button"/>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

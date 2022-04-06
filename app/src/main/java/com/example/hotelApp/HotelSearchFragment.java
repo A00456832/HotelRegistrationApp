@@ -1,4 +1,5 @@
-package com.example.inclass_10march;
+package com.example.hotelApp;
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -37,7 +38,7 @@ public class HotelSearchFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout
-        view = inflater.inflate(R.layout.hotelsearchlayout, container);
+        view = inflater.inflate(R.layout.hotelsearchlayout, container,false);
         return view;
         //return super.onCreateView(inflater, container, savedInstanceState);
 
@@ -62,7 +63,6 @@ public class HotelSearchFragment extends Fragment {
         CheckOutDatePicker = view.findViewById(R.id.CheckOutDate_Calendar);
 
         Search_button.setOnClickListener(new View.OnClickListener() {
-            ;
 
             @Override
             public void onClick(View v) {
@@ -76,12 +76,13 @@ public class HotelSearchFragment extends Fragment {
                 bundle.putString("check in date", checkInDate);
                 bundle.putString("check out date", checkOutDate);
                 bundle.putString("number of guests", numberOfGuests);
+                bundle.putString("Guest Name", guestName);
 
-                HotelSearchFragment hotelSearchFragment = new HotelSearchFragment();
-                hotelSearchFragment.setArguments(bundle);
+                HotelListFragment hotelListFragment = new HotelListFragment();
+                hotelListFragment.setArguments(bundle);
 
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.main_layout, hotelSearchFragment);
+                fragmentTransaction.replace(R.id.main_layout, hotelListFragment);
                 fragmentTransaction.remove(HotelSearchFragment.this);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();

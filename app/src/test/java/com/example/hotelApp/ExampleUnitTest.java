@@ -1,4 +1,4 @@
-package com.example.inclass_10march;
+package com.example.hotelApp;
 
 import org.junit.Test;
 

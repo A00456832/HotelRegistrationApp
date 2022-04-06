@@ -1,4 +1,4 @@
-package com.example.inclass_10march;
+package com.example.hotelApp;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -42,9 +42,9 @@ public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.View
 
         // set up the text
         holder.hotelName.setText(hotelName);
-        holder.hotelPrice.setText(hotelPrice);
+        holder.hotelPrice.setText(Integer.toString(hotelPrice));
         holder.hotelCity.setText(hotelCity);
-        holder.hotelStarRating.setText(hotelStarRating);
+        holder.hotelStarRating.setText(Integer.toString(hotelStarRating));
         holder.hotelAvailability.setText(hotelAvailability);
 
     }
