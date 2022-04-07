@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,11 +19,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class HotelSearchFragment extends Fragment {
     View view;
     ConstraintLayout mainLayout;
-    TextView hotel_Title_TextView; //Write actual name of the txtbox
+    TextView hotelTitleTextView; //hotel_Title_TextView
     DatePicker CheckInDatePicker, CheckOutDatePicker;
     EditText editText_Name, editText_NumberOfGuest, editText_guestName;
     Button EnterGuest_button, Search_button;
@@ -41,7 +43,6 @@ public class HotelSearchFragment extends Fragment {
         view = inflater.inflate(R.layout.hotelsearchlayout, container,false);
         return view;
         //return super.onCreateView(inflater, container, savedInstanceState);
-
     }
 
     @Override
@@ -49,7 +50,7 @@ public class HotelSearchFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         mainLayout = view.findViewById(R.id.main_layout);
-        hotel_Title_TextView = view.findViewById(R.id.hotel_Title_TextView);
+        hotelTitleTextView = view.findViewById(R.id.hotel_Title_TextView);
         //SearchTextConfirmation = view.findViewById(R.id.textPersonName);
 
         editText_NumberOfGuest = view.findViewById(R.id.editText_NumberOfGuest);
@@ -68,24 +69,52 @@ public class HotelSearchFragment extends Fragment {
             public void onClick(View v) {
                 checkInDate = getDateFromCalendar(CheckInDatePicker);
                 checkOutDate = getDateFromCalendar(CheckOutDatePicker);
-                //Get input from guests count
-                numberOfGuests = editText_NumberOfGuest.getText().toString();
-                guestName = editText_guestName.getText().toString();
+                //Imtiyaz: ??? Add date validation here.
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                try {
+                    Date checkIn = formatter.parse(checkInDate);
+                    Date checkOut = formatter.parse(checkOutDate);
 
-                Bundle bundle = new Bundle();
-                bundle.putString("check in date", checkInDate);
-                bundle.putString("check out date", checkOutDate);
-                bundle.putString("number of guests", numberOfGuests);
-                bundle.putString("Guest Name", guestName);
+                    if(checkOut.before(checkIn)) {
+                        Toast.makeText(getActivity(), "Please provide valid checkout or checkin date", Toast.LENGTH_LONG).show();
+                        return;
+                    }
 
-                HotelListFragment hotelListFragment = new HotelListFragment();
-                hotelListFragment.setArguments(bundle);
 
-                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.main_layout, hotelListFragment);
-                fragmentTransaction.remove(HotelSearchFragment.this);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+
+                    //Get input from guests count
+                    numberOfGuests = editText_NumberOfGuest.getText().toString();
+                    guestName = editText_guestName.getText().toString();
+
+                    if ( numberOfGuests == null || numberOfGuests.length() == 0){
+
+                        Toast.makeText(getActivity(), "Please provide at least 1 guest.", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    if ( guestName == null || guestName.length() == 0){
+
+                        Toast.makeText(getActivity(), "Please provide the your name.", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("check in date", checkInDate);
+                    bundle.putString("check out date", checkOutDate);
+                    bundle.putString("number of guests", numberOfGuests);
+                    bundle.putString("Guest Name", guestName);
+
+                    HotelListFragment hotelListFragment = new HotelListFragment();
+                    hotelListFragment.setArguments(bundle);
+
+                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.main_layout, hotelListFragment);
+                    fragmentTransaction.remove(HotelSearchFragment.this);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

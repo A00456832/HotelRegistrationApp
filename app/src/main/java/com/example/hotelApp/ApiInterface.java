@@ -11,12 +11,12 @@ import retrofit.http.Path;
 public interface ApiInterface {
 
     // API's endpoints
-    @GET("/hotel")
+    @GET("/hotel?isAvailable=true")
     public void getHotelsLists(Callback<List<HotelListData>> callback);
 
 //    @GET("/api/hotel")
 //    public void getHotelsList(Callback<List<HotelListData>> callback);
 
     @POST("/reservation/{hotelId}")
-    public void makeReservation(@Path("hotelId") Integer hotelId, @Body ReservationData reservationData, Callback<List<Object>> callback);
+    public void makeReservation(@Path("hotelId") Integer hotelId, @Body ReservationData reservationData, Callback<Object> callback);
 }

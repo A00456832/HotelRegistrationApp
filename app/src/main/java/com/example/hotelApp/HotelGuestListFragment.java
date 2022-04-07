@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,11 +17,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import com.google.gson.internal.LinkedTreeMap;
+
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -37,8 +34,8 @@ public class HotelGuestListFragment extends Fragment {
     String userName;
     Button bookingconfirmation_button;
     HotelGuestListAdapter hotelGuestListAdapter;
-    Date checkInDate_Date;
-    Date checkOutDate_Date;
+    String checkInDate_Date;
+    String checkOutDate_Date;
     RecyclerView recyclerView;
 
     @Override
@@ -72,8 +69,8 @@ public class HotelGuestListFragment extends Fragment {
 
         hotelRecapTextView.setText("You have selected " +hotelName+ " for " +numberOfGuests +" guests. The cost will be $ "+hotelPrice+ " and availability is " +hotelAvailability);
         try {
-             checkInDate_Date=new SimpleDateFormat("dd-MM-yyyy").parse(checkInDate);
-             checkOutDate_Date=new SimpleDateFormat("dd-MM-yyyy").parse(checkOutDate);
+//             checkInDate_Date=new SimpleDateFormat("dd-MM-yyyy").parse(checkInDate);
+//             checkOutDate_Date=new SimpleDateFormat("dd-MM-yyyy").parse(checkOutDate);
 
             bookingconfirmation_button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -81,26 +78,25 @@ public class HotelGuestListFragment extends Fragment {
                     ArrayList<GuestData> guestData = hotelGuestListAdapter.getGuestDataList();
 
                     ReservationData reservationData = new ReservationData();
-                    reservationData.setHotel_id(hotelId);
-                    reservationData.setCheckin_date(checkInDate_Date);
-                    reservationData.setCheckout_date(checkOutDate_Date);
+                    reservationData.setHotelId(hotelId);
+                    reservationData.setCheckinDate(checkInDate);
+                    reservationData.setCheckoutDate(checkOutDate);
 
+//                    for (int i = 0; i < parseInt(numberOfGuests); i++) {
+//                        View tempView = recyclerView.getChildAt(i);
+//                        EditText firstNameEditText = (EditText) tempView.findViewById(R.id.first_name_edittext);
+//                        EditText lastNameEditText = (EditText) tempView.findViewById(R.id.last_name_edittext);
+//                        EditText genderEditText = (EditText) tempView.findViewById(R.id.gender_edittext);
+//
+//                        String firstName = firstNameEditText.getText().toString();
+//                        String lastName = lastNameEditText.getText().toString();
+//                        String gender = genderEditText.getText().toString();
+//
+//                        GuestData gData = new GuestData(firstName,lastName,gender);
+//                        guestData.add(gData);
+//                    }
 
-                    for (int i = 0; i < parseInt(numberOfGuests); i++) {
-                        View tempView = recyclerView.getChildAt(i);
-                        EditText firstNameEditText = (EditText) tempView.findViewById(R.id.first_name_edittext);
-                        EditText lastNameEditText = (EditText) tempView.findViewById(R.id.last_name_edittext);
-                        EditText genderEditText = (EditText) tempView.findViewById(R.id.gender_edittext);
-
-                        String firstName = firstNameEditText.getText().toString();
-                        String lastName = lastNameEditText.getText().toString();
-                        String gender = genderEditText.getText().toString();
-
-                        GuestData gData = new GuestData(firstName,lastName,gender);
-                        guestData.add(gData);
-                    }
-
-                    reservationData.setGuests_list(guestData);
+                    reservationData.setGuestList(guestData);
 
                      confirmReservation(hotelId, reservationData);
                 }
@@ -109,7 +105,7 @@ public class HotelGuestListFragment extends Fragment {
             setupRecyclerView();
 
 
-        } catch (ParseException e) {
+        } catch (Exception e) {
             Toast.makeText(getContext(), "INVALID DATE FORMAT", Toast.LENGTH_LONG).show();
         }
 
@@ -119,11 +115,13 @@ public class HotelGuestListFragment extends Fragment {
         progressBar.setVisibility(View.VISIBLE);
         Api.getClient().makeReservation(hotelId,
                 reservationData,
-                new Callback<List<Object>>() {
+                new Callback<Object>() {
                     @Override
-                    public void success(List<Object> objects, Response response) {
-                        Toast.makeText(getActivity(), "Success", Toast.LENGTH_LONG).show();
+                    public void success(Object res, Response response) {
+                        LinkedTreeMap reservation = (LinkedTreeMap) ((LinkedTreeMap) res).get("reservation");
+                        Double id = (Double) reservation.get("id");
                         progressBar.setVisibility(View.GONE);
+                        Toast.makeText(getActivity(), "Reservation Confirmed with id: "+ id, Toast.LENGTH_LONG).show();
                     }
 
                     @Override

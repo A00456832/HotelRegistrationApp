@@ -43,12 +43,13 @@ public class HotelGuestListAdapter extends RecyclerView.Adapter<HotelGuestListAd
         if(guestDataList == null) {
             guestDataList = new ArrayList<>();
             for (int i = 0; i < this.noOfGuests; i++) {
-                guestDataList.add(new GuestData("","","M"));
+                guestDataList.add(new GuestData("","",""));
             }
         }
         return new ViewHolder(view);
 
     }
+
 
     @Override
     //public void onBindViewHolder(@NonNull ViewHolder holder, int position){
@@ -72,7 +73,7 @@ public class HotelGuestListAdapter extends RecyclerView.Adapter<HotelGuestListAd
 
             @Override
             public void afterTextChanged(Editable editable) {
-                guestDataList.get(position).setGuest_fname(editable.toString());
+                guestDataList.get(position).setFirstName(editable.toString());
             }
         });
 
@@ -89,7 +90,7 @@ public class HotelGuestListAdapter extends RecyclerView.Adapter<HotelGuestListAd
 
             @Override
             public void afterTextChanged(Editable editable) {
-                guestDataList.get(position).setGuest_lname(editable.toString());
+                guestDataList.get(position).setLastName(editable.toString());
             }
         });
 

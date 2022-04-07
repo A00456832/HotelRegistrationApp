@@ -5,59 +5,59 @@ import java.util.List;
 
 public class ReservationData {
 
-    private Date checkout_date;
-    private Date checkin_date;
-    private Date reservation_datetime;
-    private Integer total_price;
-    private Integer hotel_id;
-    private List<GuestData> guests_list;
+    private String checkoutDate;
+    private String checkinDate;
+    private Date reservationDateTime;
+    private Integer totalPrice;
+    private Integer hotelId;
+    private List<GuestData> guestList;
 
-    public Date getCheckin_date() {
-        return checkin_date;
+    public String getCheckinDate() {
+        return checkinDate;
     }
 
-    public void setCheckin_date(Date checkin_date) {
-        this.checkin_date = checkin_date;
+    public void setCheckinDate(String checkinDate) {
+        this.checkinDate = checkinDate;
     }
 
-    public Date getCheckout_date() {
-        return checkout_date;
+    public String getCheckoutDate() {
+        return checkoutDate;
     }
 
-    public void setCheckout_date(Date checkout_date) {
-        this.checkout_date = checkout_date;
+    public void setCheckoutDate(String checkoutDate) {
+        this.checkoutDate = checkoutDate;
     }
 
-    public Date getReservation_datetime() {
-        return reservation_datetime;
+    public Date getReservationDateTime() {
+        return reservationDateTime;
     }
 
-    public void setReservation_datetime(Date reservation_datetime) {
-        this.reservation_datetime = reservation_datetime;
+    public void setReservationDateTime(Date reservationDateTime) {
+        this.reservationDateTime = reservationDateTime;
     }
 
-    public Integer getTotal_price() {
-        return total_price;
+    public Integer getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setTotal_price(Integer total_price) {
-        this.total_price = total_price;
+    public void setTotalPrice(Integer totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
-    public Integer getHotel_id() {
-        return hotel_id;
+    public Integer getHotelId() {
+        return hotelId;
     }
 
-    public void setHotel_id(Integer hotel_id) {
-        this.hotel_id = hotel_id;
+    public void setHotelId(Integer hotelId) {
+        this.hotelId = hotelId;
     }
 
-    public List<GuestData> getGuests_list() {
-        return guests_list;
+    public List<GuestData> getGuestList() {
+        return guestList;
     }
 
-    public void setGuests_list(List<GuestData> guests_list) {
-        this.guests_list = guests_list;
+    public void setGuestList(List<GuestData> guestList) {
+        this.guestList = guestList;
     }
 
 }

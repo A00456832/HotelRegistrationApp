@@ -3,24 +3,24 @@ package com.example.hotelApp;
 
 //??? Reservation id is not considered here, it is present in the db.
 public class GuestData {
-    String guest_fname;
-    String guest_lname;
+    String firstName;
+    String lastName;
     String gender;
 
-    public String getGuest_fname() {
-        return guest_fname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setGuest_fname(String guest_fname) {
-        this.guest_fname = guest_fname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getGuest_lname() {
-        return guest_lname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setGuest_lname(String guest_lname) {
-        this.guest_lname = guest_lname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getGender() {
@@ -32,8 +32,8 @@ public class GuestData {
     }
 
     public GuestData(String guest_fname, String guest_lname, String gender) {
-        this.guest_fname = guest_fname;
-        this.guest_lname = guest_lname;
+        this.firstName = guest_fname;
+        this.lastName = guest_lname;
         this.gender = gender;
     }
 
