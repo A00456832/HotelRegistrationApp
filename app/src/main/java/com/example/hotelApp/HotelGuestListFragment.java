@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,16 +27,11 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 public class HotelGuestListFragment extends Fragment {
-
     View view;
     ProgressBar progressBar;
-    public static String GenderID="";
     Integer noOfGuests;
-    String userName;
-    Button bookingconfirmation_button;
+    Button bookingconfirmationButton;
     HotelGuestListAdapter hotelGuestListAdapter;
-    String checkInDate_Date;
-    String checkOutDate_Date;
     RecyclerView recyclerView;
 
     @Override
@@ -53,7 +49,7 @@ public class HotelGuestListFragment extends Fragment {
         TextView hotelRecapTextView = view.findViewById(R.id.hotel_recap_text_view);
 
         progressBar = view.findViewById(R.id.Guest_List_progress_bar);
-        bookingconfirmation_button = view.findViewById(R.id.bookingconfirmation_button);
+        bookingconfirmationButton = view.findViewById(R.id.bookingconfirmation_button);
 
         String hotelName = getArguments().getString("hotel name");
         Integer hotelPrice = getArguments().getInt("hotel price");
@@ -67,12 +63,9 @@ public class HotelGuestListFragment extends Fragment {
 
         noOfGuests = parseInt(numberOfGuests);
 
-        hotelRecapTextView.setText("You have selected " +hotelName+ " for " +numberOfGuests +" guests. The cost will be $ "+hotelPrice+ " and availability is " +hotelAvailability);
+        hotelRecapTextView.setText("You have selected " +hotelName+ " for " +numberOfGuests +" guests. The per day cost will be $ "+hotelPrice+ " and availability is " +hotelAvailability);
         try {
-//             checkInDate_Date=new SimpleDateFormat("dd-MM-yyyy").parse(checkInDate);
-//             checkOutDate_Date=new SimpleDateFormat("dd-MM-yyyy").parse(checkOutDate);
-
-            bookingconfirmation_button.setOnClickListener(new View.OnClickListener() {
+                bookingconfirmationButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     ArrayList<GuestData> guestData = hotelGuestListAdapter.getGuestDataList();
@@ -81,34 +74,21 @@ public class HotelGuestListFragment extends Fragment {
                     reservationData.setHotelId(hotelId);
                     reservationData.setCheckinDate(checkInDate);
                     reservationData.setCheckoutDate(checkOutDate);
-
-//                    for (int i = 0; i < parseInt(numberOfGuests); i++) {
-//                        View tempView = recyclerView.getChildAt(i);
-//                        EditText firstNameEditText = (EditText) tempView.findViewById(R.id.first_name_edittext);
-//                        EditText lastNameEditText = (EditText) tempView.findViewById(R.id.last_name_edittext);
-//                        EditText genderEditText = (EditText) tempView.findViewById(R.id.gender_edittext);
-//
-//                        String firstName = firstNameEditText.getText().toString();
-//                        String lastName = lastNameEditText.getText().toString();
-//                        String gender = genderEditText.getText().toString();
-//
-//                        GuestData gData = new GuestData(firstName,lastName,gender);
-//                        guestData.add(gData);
-//                    }
-
                     reservationData.setGuestList(guestData);
-
-                     confirmReservation(hotelId, reservationData);
+                    confirmReservation(hotelId, reservationData);
                 }
             });
 
             setupRecyclerView();
-
+            //???
+//            for (int i = 0; i < parseInt(numberOfGuests); i++) {
+//                View tempView = recyclerView.getChildAt(i);
+//
+//            }
 
         } catch (Exception e) {
-            Toast.makeText(getContext(), "INVALID DATE FORMAT", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), e.toString(), Toast.LENGTH_LONG).show();
         }
-
     }
 
     public void confirmReservation(Integer hotelId, ReservationData reservationData) {
@@ -122,22 +102,37 @@ public class HotelGuestListFragment extends Fragment {
                         Double id = (Double) reservation.get("id");
                         progressBar.setVisibility(View.GONE);
                         Toast.makeText(getActivity(), "Reservation Confirmed with id: "+ id, Toast.LENGTH_LONG).show();
+                        // Put the reservation id in bundle so that it can be passed as parameter to get call on ReservationFragment.
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("currentReservationId", id.intValue());
+
+                        ReservationFragment reservationFragment = new ReservationFragment();
+                        reservationFragment.setArguments(bundle);
+                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                        fragmentTransaction.remove(HotelGuestListFragment.this);
+                        fragmentTransaction.replace(R.id.main_layout, reservationFragment);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commitAllowingStateLoss();
                     }
 
                     @Override
                     public void failure(RetrofitError error) {
                         // if error occurs in network transaction then we can get the error in this method.
-                        Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_LONG).show();
+                        String message;
+                        if(error.getBody() != null) {
+                            message = (String) ((LinkedTreeMap)error.getBody()).get("message");
+                        } else {
+                            message = error.toString();
+                        }
+                        Toast.makeText(getActivity(),message, Toast.LENGTH_LONG).show();
                         progressBar.setVisibility(View.GONE);
                     }
                 });
     }
 
     private void setupRecyclerView() {
-       // progressBar.setVisibility(View.GONE);
         this.recyclerView = view.findViewById(R.id.hotel_guestlist_recyclerView);
         this.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
         this.hotelGuestListAdapter = new HotelGuestListAdapter(getActivity(),noOfGuests);
         recyclerView.setAdapter(this.hotelGuestListAdapter);
     }

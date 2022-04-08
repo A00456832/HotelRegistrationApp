@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-//import retrofit.Callback;
-
 public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.ViewHolder> {
 
     private List<HotelListData> hotelListData;
@@ -46,7 +44,8 @@ public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.View
         holder.hotelCity.setText(hotelCity);
         holder.hotelStarRating.setText(Integer.toString(hotelStarRating));
         holder.hotelAvailability.setText(hotelAvailability);
-
+        // high the available hotel in green.
+        //holder.hotelAvailability.setTextColor(hotelAvailability.equals("Yes") ? Color.GREEN:Color.RED);
     }
 
     @Override
@@ -67,7 +66,6 @@ public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.View
 
         TextView hotelName, hotelPrice, hotelAvailability, hotelCity, hotelStarRating;
 
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             hotelName = itemView.findViewById(R.id.hotel_name_text_view);
@@ -76,7 +74,6 @@ public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.View
             hotelCity = itemView.findViewById(R.id.city_text_view);
             hotelStarRating = itemView.findViewById(R.id.starRating_text_view);
             itemView.setOnClickListener(this);
-
         }
 
         @Override

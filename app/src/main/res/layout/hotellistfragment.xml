@@ -26,7 +26,7 @@
                 android:textSize="25sp"
                 android:textAlignment="center"
                 android:gravity="center_horizontal"
-                tools:text = "Available hotels"
+                tools:text = "Matched hotels"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/black"/>
 

@@ -1,6 +1,5 @@
 package com.example.hotelApp;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,17 +23,11 @@ import java.util.Date;
 public class HotelSearchFragment extends Fragment {
     View view;
     ConstraintLayout mainLayout;
-    TextView hotelTitleTextView; //hotel_Title_TextView
+    TextView hotelTitleTextView;
     DatePicker CheckInDatePicker, CheckOutDatePicker;
-    EditText editText_Name, editText_NumberOfGuest, editText_guestName;
-    Button EnterGuest_button, Search_button;
+    EditText numberOfGuestEditText, guestNameEditText;
+    Button searchButton;
     String checkInDate, checkOutDate, numberOfGuests, guestName;
-
-
-    SharedPreferences sharedPreferences;
-    public static final String myPreference = "myPref";
-    public static final String name = "nameKey";
-    public static final String guestsCount = "guestsCount";
 
     @Nullable
     @Override
@@ -51,49 +44,39 @@ public class HotelSearchFragment extends Fragment {
 
         mainLayout = view.findViewById(R.id.main_layout);
         hotelTitleTextView = view.findViewById(R.id.hotel_Title_TextView);
-        //SearchTextConfirmation = view.findViewById(R.id.textPersonName);
-
-        editText_NumberOfGuest = view.findViewById(R.id.editText_NumberOfGuest);
-        editText_guestName = view.findViewById(R.id.editText_guestName);
-
-
-        Search_button = view.findViewById(R.id.Search_button);
-        EnterGuest_button = view.findViewById(R.id.EnterGuest_button);
-
+        numberOfGuestEditText = view.findViewById(R.id.editText_NumberOfGuest);
+        guestNameEditText = view.findViewById(R.id.editText_guestName);
+        searchButton = view.findViewById(R.id.Search_button);
         CheckInDatePicker = view.findViewById(R.id.CheckInDate_Calendar);
         CheckOutDatePicker = view.findViewById(R.id.CheckOutDate_Calendar);
 
-        Search_button.setOnClickListener(new View.OnClickListener() {
+        searchButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 checkInDate = getDateFromCalendar(CheckInDatePicker);
                 checkOutDate = getDateFromCalendar(CheckOutDatePicker);
-                //Imtiyaz: ??? Add date validation here.
+
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                 try {
                     Date checkIn = formatter.parse(checkInDate);
                     Date checkOut = formatter.parse(checkOutDate);
 
                     if(checkOut.before(checkIn)) {
-                        Toast.makeText(getActivity(), "Please provide valid checkout or checkin date", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "Checkout date should be greater than the checkin date.", Toast.LENGTH_LONG).show();
                         return;
                     }
 
-
-
                     //Get input from guests count
-                    numberOfGuests = editText_NumberOfGuest.getText().toString();
-                    guestName = editText_guestName.getText().toString();
+                    numberOfGuests = numberOfGuestEditText.getText().toString();
+                    guestName = guestNameEditText.getText().toString();
 
                     if ( numberOfGuests == null || numberOfGuests.length() == 0){
-
                         Toast.makeText(getActivity(), "Please provide at least 1 guest.", Toast.LENGTH_LONG).show();
                         return;
                     }
 
                     if ( guestName == null || guestName.length() == 0){
-
                         Toast.makeText(getActivity(), "Please provide the your name.", Toast.LENGTH_LONG).show();
                         return;
                     }

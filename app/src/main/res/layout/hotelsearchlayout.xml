@@ -33,7 +33,8 @@
         android:id="@+id/CheckInDate_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:text="Check In Date:"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +55,7 @@
         android:id="@+id/CheckOutDate_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:text="Check Out Date:"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/CheckInDate_Calendar"
@@ -67,6 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/CheckOutDate_TextView"
@@ -77,7 +79,7 @@
         android:layout_width="137dp"
         android:layout_height="40dp"
         android:layout_marginTop="30dp"
-        android:text="Number of guest"
+        android:text="Guest count:"
 
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -93,7 +95,7 @@
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="1dp"
-        android:text="Enter your name"
+        android:text="Enter your name:"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/NoOfGuest_TextView"
          />
@@ -123,22 +125,16 @@
         />
 
     <Button
-        android:id="@+id/EnterGuest_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter Guest"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/YourName_TextView"/>
-
-    <Button
         android:id="@+id/Search_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/EnterGuest_button"/>
+        app:layout_constraintTop_toBottomOf="@id/YourName_TextView"
+        android:shadowColor="@color/black"
+        />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

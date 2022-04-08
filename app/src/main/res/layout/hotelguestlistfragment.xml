@@ -4,6 +4,17 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:id="@+id/hotel_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/hotel_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
     <TextView
         android:id="@+id/hotel_recap_text_view"
         android:layout_width="match_parent"
@@ -12,41 +23,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textAlignment="center"
         android:gravity="center_horizontal"
-        tools:text = "Sample text"
+        tools:text = ""
         android:fontFamily="sans-serif"
         android:textColor="@color/black"/>
-
-<!--    <LinearLayout-->
-<!--        android:orientation="horizontal"-->
-<!--        android:id="@+id/linear"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="600dp"-->
-<!--        android:layout_marginTop="100dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        android:background="@color/purple_200"-->
-<!--        tools:ignore="MissingConstraints"-->
-<!--        tools:layout_editor_absoluteX="0dp"-->
-<!--        tools:layout_editor_absoluteY="51dp"-->
-
-<!--        >-->
-<!--    </LinearLayout>-->
-
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/hotel_guestlist_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_200"
             app:layout_constraintTop_toBottomOf="@id/hotel_recap_text_view"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="20dp"
+            />
 
 
     <Button
@@ -56,8 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/hotel_guestlist_recyclerView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:text="Confirm Booking"
         />
 
@@ -71,4 +64,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@ public class HotelListData {
     int price;
     String city;
     int starRating;
-    boolean available;
+    boolean isAvailable;
     int id;
 
     public String getName() {
@@ -42,11 +42,11 @@ public class HotelListData {
     }
 
     public boolean isAvailable() {
-        return available;
+        return isAvailable;
     }
 
     public void setAvailable(boolean available) {
-        this.available = available;
+        this.isAvailable = available;
     }
 
     public int getId() {
@@ -58,8 +58,6 @@ public class HotelListData {
         this.price = price;
         this.city = city;
         this.starRating = starRating;
-        this.available = available;
+        this.isAvailable = available;
     }
-
-
 }

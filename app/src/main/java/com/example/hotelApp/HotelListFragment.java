@@ -53,18 +53,28 @@ public class HotelListFragment extends Fragment implements ItemClickListener {
         //Set up the header
         headingTextView.setText("For "+guestName + ", displaying hotel for " + numberOfGuests + " guests staying from " + checkInDate +
                 " to " + checkOutDate);
-
+        // Invoked the get API call to populate the available hotels
         getHotelsListsData();
-
-
     }
-
 
     private void getHotelsListsData() {
         progressBar.setVisibility(View.VISIBLE);
         Api.getClient().getHotelsLists(new Callback<List<HotelListData>>() {
             @Override
             public void success(List<HotelListData> userListResponses, Response response) {
+
+                // If get hotel API returns no hotels then show message about unavailability of the hotels.
+                if (userListResponses.size()== 0)
+                {
+                    Toast.makeText(getActivity(), "Sorry, no hotel is available.", Toast.LENGTH_LONG).show();
+
+                    HotelSearchFragment hotelSearchFragment = new HotelSearchFragment();
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(HotelListFragment.this);
+                    fragmentTransaction.replace(R.id.main_layout, hotelSearchFragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commitAllowingStateLoss();
+                }
                 // in this method we will get the response from API
                 userListResponseData =  userListResponses;
                 // Set up the RecyclerView
@@ -105,20 +115,17 @@ public class HotelListFragment extends Fragment implements ItemClickListener {
         Integer hotelStarRating = hotelListData.getStarRating();
         Integer hotelId = hotelListData.getId();
 
-
         Bundle bundle = new Bundle();
         bundle.putString("hotel name", hotelName);
         bundle.putInt("hotel price", hotelPrice);
         bundle.putBoolean("hotel availability", hotelAvailability);
         bundle.putString("hotel city", hotelCity);
-
+        // used the shortcut version of the code to put the dates in the bundle
         bundle.putString("check in date", getArguments().getString("check in date"));
         bundle.putString("check out date", getArguments().getString("check out date"));
-
         bundle.putInt("hotel Star Rating", hotelStarRating);
         bundle.putString("number of guests", numberOfGuests);
         bundle.putInt("hotel Id", hotelId);
-
 
         HotelGuestListFragment hotelGuestListFragment = new HotelGuestListFragment();
         hotelGuestListFragment.setArguments(bundle);
@@ -128,7 +135,6 @@ public class HotelListFragment extends Fragment implements ItemClickListener {
         fragmentTransaction.replace(R.id.main_layout, hotelGuestListFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commitAllowingStateLoss();
-
     }
 }
 

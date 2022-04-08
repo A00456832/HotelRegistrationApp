@@ -1,7 +1,5 @@
 package com.example.hotelApp;
 
-
-//??? Reservation id is not considered here, it is present in the db.
 public class GuestData {
     String firstName;
     String lastName;

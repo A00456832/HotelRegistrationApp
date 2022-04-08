@@ -19,4 +19,9 @@ public interface ApiInterface {
 
     @POST("/reservation/{hotelId}")
     public void makeReservation(@Path("hotelId") Integer hotelId, @Body ReservationData reservationData, Callback<Object> callback);
+
+
+    @GET("/reservation/{reservationId}")
+    public void getReservation(@Path("reservationId") Integer reservationId, Callback<Reservation> callback);
+
 }

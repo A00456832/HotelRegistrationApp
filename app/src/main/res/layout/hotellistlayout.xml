@@ -11,15 +11,38 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="40dp"
-        android:layout_marginLeft="10dp">
+        android:layout_marginLeft="10dp"
+        >
+
+        <TextView
+            android:id="@+id/hotel_name_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Hotel name:"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/hotel_name_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/hotel_name_title_text_view"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Hotel Name"
+            android:text=""
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/price_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/hotel_name_text_view"
+            app:layout_constraintStart_toStartOf="@id/hotel_name_title_text_view"
+            android:text="Price:"
+            android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/black"/>
 
@@ -28,8 +51,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/hotel_name_text_view"
-            app:layout_constraintStart_toStartOf="@id/hotel_name_text_view"
-            android:text="Price"
+            app:layout_constraintStart_toEndOf="@id/price_title_text_view"
+            android:text=""
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/availability_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/price_text_view"
+            app:layout_constraintStart_toStartOf="@id/hotel_name_title_text_view"
+            android:text="Availability:"
+            android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/black"/>
 
@@ -38,8 +72,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/price_text_view"
-            app:layout_constraintStart_toStartOf="@id/hotel_name_text_view"
-            android:text="Availability"
+            app:layout_constraintStart_toEndOf="@id/availability_title_text_view"
+            android:text=""
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/city_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/availability_text_view"
+            app:layout_constraintStart_toStartOf="@id/hotel_name_title_text_view"
+            android:text="City:"
+            android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/black"/>
 
@@ -48,20 +93,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/availability_text_view"
-            app:layout_constraintStart_toStartOf="@id/hotel_name_text_view"
-            android:text="City"
+            app:layout_constraintStart_toEndOf="@id/city_title_text_view"
+            android:text=""
             android:textSize="15sp"
             android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/starRating_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/city_text_view"
+            app:layout_constraintStart_toStartOf="@id/hotel_name_title_text_view"
+            android:text="Star Ratings:"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            />
+
 
         <TextView
             android:id="@+id/starRating_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/city_text_view"
-            app:layout_constraintStart_toStartOf="@id/hotel_name_text_view"
-            android:text="Star Rating"
+            app:layout_constraintStart_toEndOf="@id/starRating_title_text_view"
+            android:text=""
             android:textSize="15sp"
             android:textColor="@color/black"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

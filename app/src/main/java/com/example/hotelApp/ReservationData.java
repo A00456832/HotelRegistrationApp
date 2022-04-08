@@ -11,6 +11,15 @@ public class ReservationData {
     private Integer totalPrice;
     private Integer hotelId;
     private List<GuestData> guestList;
+    private HotelListData hotel;
+
+    public HotelListData getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(HotelListData hotel) {
+        this.hotel = hotel;
+    }
 
     public String getCheckinDate() {
         return checkinDate;
