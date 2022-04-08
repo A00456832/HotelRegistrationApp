@@ -1,9 +1,9 @@
-package com.example.inclass_10march;
+package com.example.hotelApp;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 

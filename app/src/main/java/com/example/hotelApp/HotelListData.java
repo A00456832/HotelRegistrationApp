@@ -1,6 +1,13 @@
-package com.example.inclass_10march;
+package com.example.hotelApp;
 
 public class HotelListData {
+
+    String name;
+    int price;
+    String city;
+    int starRating;
+    boolean available;
+    int id;
 
     public String getName() {
         return name;
@@ -34,27 +41,19 @@ public class HotelListData {
         this.starRating = starRating;
     }
 
-    public boolean isAvailable() {
+    public boolean getIsAvailable() {
         return available;
     }
 
-    public void setAvailable(boolean available) {
-        this.available = available;
+    public void setIsAvailable(boolean isAvailable) {
+        this.available = isAvailable;
     }
 
-    String name;
-    int price;
-    String city;
-    int starRating;
-    boolean available;
-
-    public HotelListData(String name, int price, String city, int starRating, boolean available) {
-        this.name = name;
-        this.price = price;
-        this.city = city;
-        this.starRating = starRating;
-        this.available = available;
+    public void setId(int id) {
+        this.id = id;
     }
 
-
+    public int getId() {
+        return id;
+    }
 }

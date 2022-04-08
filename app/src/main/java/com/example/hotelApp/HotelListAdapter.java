@@ -1,4 +1,4 @@
-package com.example.inclass_10march;
+package com.example.hotelApp;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,8 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
-
-//import retrofit.Callback;
 
 public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.ViewHolder> {
 
@@ -38,15 +36,16 @@ public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.View
         int hotelPrice = hotelListData.get(position).getPrice();
         String hotelCity = hotelListData.get(position).getCity();
         int hotelStarRating = hotelListData.get(position).getStarRating();
-        String hotelAvailability = (hotelListData.get(position).isAvailable()) ? "Yes":"No";
+        String hotelAvailability = (hotelListData.get(position).getIsAvailable()) ? "Yes":"No";
 
         // set up the text
         holder.hotelName.setText(hotelName);
-        holder.hotelPrice.setText(hotelPrice);
+        holder.hotelPrice.setText(Integer.toString(hotelPrice));
         holder.hotelCity.setText(hotelCity);
-        holder.hotelStarRating.setText(hotelStarRating);
+        holder.hotelStarRating.setText(Integer.toString(hotelStarRating));
         holder.hotelAvailability.setText(hotelAvailability);
-
+        // high the available hotel in green.
+        //holder.hotelAvailability.setTextColor(hotelAvailability.equals("Yes") ? Color.GREEN:Color.RED);
     }
 
     @Override
@@ -67,16 +66,14 @@ public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.View
 
         TextView hotelName, hotelPrice, hotelAvailability, hotelCity, hotelStarRating;
 
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            hotelName = itemView.findViewById(R.id.hotel_name_text_view);
-            hotelPrice = itemView.findViewById(R.id.price_text_view);
-            hotelAvailability = itemView.findViewById(R.id.availability_text_view);
-            hotelCity = itemView.findViewById(R.id.city_text_view);
+            hotelName = itemView.findViewById(R.id.Hotel_name_TextView);
+            hotelPrice = itemView.findViewById(R.id.Price_title_TextView);
+            hotelAvailability = itemView.findViewById(R.id.Availability_TextView);
+            hotelCity = itemView.findViewById(R.id.City_TextView);
             hotelStarRating = itemView.findViewById(R.id.starRating_text_view);
             itemView.setOnClickListener(this);
-
         }
 
         @Override

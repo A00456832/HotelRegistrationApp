@@ -1,4 +1,4 @@
-package com.example.inclass_10march;
+package com.example.hotelApp;
 
 import retrofit.RestAdapter;
 
@@ -8,7 +8,7 @@ public class Api {
 
         // change your base URL
         RestAdapter adapter = new RestAdapter.Builder()
-                .setEndpoint("http://Hotelreservation-env.eba-avazyhss.us-east-1.elasticbeanstalk.com/") //Set the Root URL
+                .setEndpoint("http://192.168.2.29:8090/") //Set the Root URL
                 .build(); //Finally building the adapter
 
         //Creating object for our interface
