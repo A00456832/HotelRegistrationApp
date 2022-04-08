@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Smart Hotel Management"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:fontFamily="sans-serif"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,7 +36,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="Check In Date:"
-        android:textStyle="bold"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hotel_Title_TextView" />
 
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="Check Out Date:"
-        android:textStyle="bold"
+        android:textSize="20dp"
         app:layout_constraintTop_toBottomOf="@+id/CheckInDate_Calendar"
         android:layout_marginTop="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -80,52 +80,52 @@
         android:layout_height="40dp"
         android:layout_marginTop="30dp"
         android:text="Guest count:"
-
-        android:layout_marginStart="16dp"
+        android:textSize="20dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:fontFamily="sans-serif"
-        android:textStyle="bold"
+
         app:layout_constraintTop_toBottomOf="@+id/CheckOutDate_Calendar"
         />
 
     <TextView
         android:id="@+id/YourName_TextView"
-        android:layout_width="137dp"
+        android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="1dp"
         android:text="Enter your name:"
-        android:textStyle="bold"
+        android:textSize="20dp"
         app:layout_constraintTop_toBottomOf="@id/NoOfGuest_TextView"
          />
 
     <EditText
-        android:id="@+id/editText_NumberOfGuest"
+        android:id="@+id/NumberOfGuest_EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="16dp"
+        android:hint="count please"
         app:layout_constraintLeft_toRightOf="@id/NoOfGuest_TextView"
         app:layout_constraintTop_toBottomOf="@id/CheckOutDate_Calendar"
-
         />
 
     <EditText
-        android:id="@+id/editText_guestName"
+        android:id="@+id/GuestName_EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text=""
+        android:hint="name please"
         app:layout_constraintLeft_toRightOf="@id/YourName_TextView"
         app:layout_constraintTop_toTopOf="@id/YourName_TextView"
         />
 
     <Button
-        android:id="@+id/Search_button"
+        android:id="@+id/Search_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search"
@@ -135,7 +135,6 @@
         app:layout_constraintTop_toBottomOf="@id/YourName_TextView"
         android:shadowColor="@color/black"
         />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

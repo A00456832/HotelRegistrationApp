@@ -15,7 +15,7 @@
         >
 
         <TextView
-            android:id="@+id/hotel_name_title_text_view"
+            android:id="@+id/Hotel_name_title_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,74 +26,74 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/hotel_name_text_view"
+            android:id="@+id/Hotel_name_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/hotel_name_title_text_view"
+            app:layout_constraintStart_toEndOf="@id/Hotel_name_title_TextView"
             app:layout_constraintTop_toTopOf="parent"
             android:text=""
             android:textSize="15sp"
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/price_title_text_view"
+            android:id="@+id/Price_title_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/hotel_name_text_view"
-            app:layout_constraintStart_toStartOf="@id/hotel_name_title_text_view"
+            app:layout_constraintTop_toBottomOf="@id/Hotel_name_TextView"
+            app:layout_constraintStart_toStartOf="@id/Hotel_name_title_TextView"
             android:text="Price:"
             android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/price_text_view"
+            android:id="@+id/Price_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/hotel_name_text_view"
-            app:layout_constraintStart_toEndOf="@id/price_title_text_view"
+            app:layout_constraintTop_toBottomOf="@id/Hotel_name_TextView"
+            app:layout_constraintStart_toEndOf="@id/Price_title_TextView"
             android:text=""
             android:textSize="15sp"
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/availability_title_text_view"
+            android:id="@+id/Availability_title_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/price_text_view"
-            app:layout_constraintStart_toStartOf="@id/hotel_name_title_text_view"
+            app:layout_constraintTop_toBottomOf="@id/Price_TextView"
+            app:layout_constraintStart_toStartOf="@id/Hotel_name_title_TextView"
             android:text="Availability:"
             android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/availability_text_view"
+            android:id="@+id/Availability_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/price_text_view"
-            app:layout_constraintStart_toEndOf="@id/availability_title_text_view"
+            app:layout_constraintTop_toBottomOf="@id/Price_TextView"
+            app:layout_constraintStart_toEndOf="@id/Availability_title_TextView"
             android:text=""
             android:textSize="15sp"
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/city_title_text_view"
+            android:id="@+id/City_title_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/availability_text_view"
-            app:layout_constraintStart_toStartOf="@id/hotel_name_title_text_view"
+            app:layout_constraintTop_toBottomOf="@id/Availability_TextView"
+            app:layout_constraintStart_toStartOf="@id/Hotel_name_title_TextView"
             android:text="City:"
             android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/city_text_view"
+            android:id="@+id/City_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/availability_text_view"
-            app:layout_constraintStart_toEndOf="@id/city_title_text_view"
+            app:layout_constraintTop_toBottomOf="@id/Availability_TextView"
+            app:layout_constraintStart_toEndOf="@id/City_title_TextView"
             android:text=""
             android:textSize="15sp"
             android:textColor="@color/black"/>
@@ -102,8 +102,8 @@
             android:id="@+id/starRating_title_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/city_text_view"
-            app:layout_constraintStart_toStartOf="@id/hotel_name_title_text_view"
+            app:layout_constraintTop_toBottomOf="@id/City_TextView"
+            app:layout_constraintStart_toStartOf="@id/Hotel_name_title_TextView"
             android:text="Star Ratings:"
             android:textStyle="bold"
             android:textSize="15sp"
@@ -115,7 +115,7 @@
             android:id="@+id/starRating_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/city_text_view"
+            app:layout_constraintTop_toBottomOf="@id/City_TextView"
             app:layout_constraintStart_toEndOf="@id/starRating_title_text_view"
             android:text=""
             android:textSize="15sp"

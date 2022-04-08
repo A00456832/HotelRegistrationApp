@@ -46,10 +46,10 @@ public class HotelGuestListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView hotelRecapTextView = view.findViewById(R.id.hotel_recap_text_view);
+        TextView hotelRecapTextView = view.findViewById(R.id.Hotel_Recap_TextView);
 
         progressBar = view.findViewById(R.id.Guest_List_progress_bar);
-        bookingconfirmationButton = view.findViewById(R.id.bookingconfirmation_button);
+        bookingconfirmationButton = view.findViewById(R.id.BookingConfirmation_Button);
 
         String hotelName = getArguments().getString("hotel name");
         Integer hotelPrice = getArguments().getInt("hotel price");
@@ -131,7 +131,7 @@ public class HotelGuestListFragment extends Fragment {
     }
 
     private void setupRecyclerView() {
-        this.recyclerView = view.findViewById(R.id.hotel_guestlist_recyclerView);
+        this.recyclerView = view.findViewById(R.id.Hotel_Guestlist_RecyclerView);
         this.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         this.hotelGuestListAdapter = new HotelGuestListAdapter(getActivity(),noOfGuests);
         recyclerView.setAdapter(this.hotelGuestListAdapter);

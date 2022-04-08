@@ -1,5 +1,6 @@
 package com.example.hotelApp;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +24,7 @@ import java.util.Date;
 public class HotelSearchFragment extends Fragment {
     View view;
     ConstraintLayout mainLayout;
-    TextView hotelTitleTextView;
+    TextView hotelTitleTextView, ErrorMessageTextView;
     DatePicker CheckInDatePicker, CheckOutDatePicker;
     EditText numberOfGuestEditText, guestNameEditText;
     Button searchButton;
@@ -35,7 +36,6 @@ public class HotelSearchFragment extends Fragment {
         // Inflate the layout
         view = inflater.inflate(R.layout.hotelsearchlayout, container,false);
         return view;
-        //return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
@@ -44,9 +44,9 @@ public class HotelSearchFragment extends Fragment {
 
         mainLayout = view.findViewById(R.id.main_layout);
         hotelTitleTextView = view.findViewById(R.id.hotel_Title_TextView);
-        numberOfGuestEditText = view.findViewById(R.id.editText_NumberOfGuest);
-        guestNameEditText = view.findViewById(R.id.editText_guestName);
-        searchButton = view.findViewById(R.id.Search_button);
+        numberOfGuestEditText = view.findViewById(R.id.NumberOfGuest_EditText);
+        guestNameEditText = view.findViewById(R.id.GuestName_EditText);
+        searchButton = view.findViewById(R.id.Search_Button);
         CheckInDatePicker = view.findViewById(R.id.CheckInDate_Calendar);
         CheckOutDatePicker = view.findViewById(R.id.CheckOutDate_Calendar);
 
@@ -63,7 +63,13 @@ public class HotelSearchFragment extends Fragment {
                     Date checkOut = formatter.parse(checkOutDate);
 
                     if(checkOut.before(checkIn)) {
-                        Toast.makeText(getActivity(), "Checkout date should be greater than the checkin date.", Toast.LENGTH_LONG).show();
+                        Toast toast = Toast.makeText(getActivity(), "Checkout date should be greater than the checkin date.", Toast.LENGTH_LONG);
+                        View viewToast = toast.getView();
+                        TextView text = viewToast.findViewById(android.R.id.message);
+                        text.setBackgroundColor(R.drawable.toast_background);
+                        text.setTextColor(Color.WHITE);
+                        text.setTextSize(20);
+                        toast.show();
                         return;
                     }
 
@@ -72,12 +78,24 @@ public class HotelSearchFragment extends Fragment {
                     guestName = guestNameEditText.getText().toString();
 
                     if ( numberOfGuests == null || numberOfGuests.length() == 0){
-                        Toast.makeText(getActivity(), "Please provide at least 1 guest.", Toast.LENGTH_LONG).show();
+                        Toast toast = Toast.makeText(getActivity(), "Please provide at least 1 guest.", Toast.LENGTH_LONG);
+                        View viewToast = toast.getView();
+                        TextView text = viewToast.findViewById(android.R.id.message);
+                        text.setBackgroundColor(R.drawable.toast_background);
+                        text.setTextColor(Color.WHITE);
+                        text.setTextSize(20);
+                        toast.show();
                         return;
                     }
 
                     if ( guestName == null || guestName.length() == 0){
-                        Toast.makeText(getActivity(), "Please provide the your name.", Toast.LENGTH_LONG).show();
+                        Toast toast = Toast.makeText(getActivity(), "Please provide the your name.", Toast.LENGTH_LONG);
+                        View viewToast = toast.getView();
+                        TextView text = viewToast.findViewById(android.R.id.message);
+                        text.setBackgroundColor(R.drawable.toast_background);
+                        text.setTextColor(Color.WHITE);
+                        text.setTextSize(20);
+                        toast.show();
                         return;
                     }
 

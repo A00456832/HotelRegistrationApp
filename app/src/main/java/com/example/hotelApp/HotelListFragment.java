@@ -42,7 +42,7 @@ public class HotelListFragment extends Fragment implements ItemClickListener {
         super.onViewCreated(view, savedInstanceState);
 
         //heading text view
-        headingTextView = view.findViewById(R.id.heading_text_view);
+        headingTextView = view.findViewById(R.id.Heading_TextView);
         progressBar = view.findViewById(R.id.progress_bar);
 
         String checkInDate = getArguments().getString("check in date");
@@ -77,6 +77,7 @@ public class HotelListFragment extends Fragment implements ItemClickListener {
                 }
                 // in this method we will get the response from API
                 userListResponseData =  userListResponses;
+
                 // Set up the RecyclerView
                 setupRecyclerView();
 
@@ -110,7 +111,7 @@ public class HotelListFragment extends Fragment implements ItemClickListener {
 
         String hotelName = hotelListData.getName();
         Integer hotelPrice = hotelListData.getPrice();
-        Boolean hotelAvailability = hotelListData.isAvailable();
+        Boolean hotelAvailability = hotelListData.getIsAvailable();
         String hotelCity = hotelListData.getCity();
         Integer hotelStarRating = hotelListData.getStarRating();
         Integer hotelId = hotelListData.getId();

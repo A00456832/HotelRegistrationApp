@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <EditText
-        android:id="@+id/first_name_edittext"
+        android:id="@+id/First_Name_EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,32 +15,23 @@
             android:hint="First name"
         android:textColor="@color/black"/>
     <EditText
-        android:id="@+id/last_name_edittext"
+        android:id="@+id/Last_Name_EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/first_name_edittext"
+        app:layout_constraintStart_toEndOf="@id/First_Name_EditText"
         app:layout_constraintTop_toTopOf="parent"
         android:width="100dp"
         android:hint="Last name"
         android:textSize="15sp"
         android:textColor="@color/black"/>
-<!--    <EditText-->
-<!--        android:id="@+id/gender_edittext"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintStart_toEndOf="@id/last_name_edittext"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:width="100dp"-->
-<!--        android:hint="gender"-->
-<!--        android:textSize="15sp"-->
-<!--        android:textColor="@color/black"/>-->
+
     <Spinner
         android:id="@+id/gender_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:spinnerMode="dropdown"
         android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@id/last_name_edittext"
+        app:layout_constraintStart_toEndOf="@id/Last_Name_EditText"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

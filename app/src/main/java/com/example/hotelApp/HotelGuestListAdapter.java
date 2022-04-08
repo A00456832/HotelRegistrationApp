@@ -126,8 +126,8 @@ public class HotelGuestListAdapter extends RecyclerView.Adapter<HotelGuestListAd
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            guestFName = itemView.findViewById(R.id.first_name_edittext);
-            guestLName = itemView.findViewById(R.id.last_name_edittext);
+            guestFName = itemView.findViewById(R.id.First_Name_EditText);
+            guestLName = itemView.findViewById(R.id.Last_Name_EditText);
             genderSpinner =itemView.findViewById(R.id.gender_spinner);
 
             ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(HotelGuestListAdapter.context, R.array.gender, android.R.layout.simple_spinner_item);
